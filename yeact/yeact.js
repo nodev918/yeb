@@ -9,6 +9,7 @@ function createElement(type, props, ...children) {
     },
   };
 }
+
 function createTextElement(text) {
   return {
     type: "TEXT_ELEMENT",
@@ -19,7 +20,12 @@ function createTextElement(text) {
   };
 }
 
+function hi() {
+  console.log(hi);
+}
+
 function render(element, container) {
+  console.log(element);
   const dom =
     element.type == "TEXT_ELEMENT"
       ? document.createTextNode("")
@@ -29,6 +35,10 @@ function render(element, container) {
   Object.keys(element.props)
     .filter(isProperty)
     .forEach((name) => {
+      if (name == "onclick") {
+        console.log("ele: ", element);
+        console.log(typeof element.props[name]);
+      }
       dom[name] = element.props[name];
     });
   element.props.children.forEach((child) => render(child, dom));
