@@ -36,8 +36,8 @@ function render(element, container) {
     .filter(isProperty)
     .forEach((name) => {
       if (name == "onclick") {
-        console.log("ele: ", element);
-        console.log(typeof element.props[name]);
+        const fn = window[element.props[name]];
+        dom.addEventListener("click", fn);
       }
       dom[name] = element.props[name];
     });
