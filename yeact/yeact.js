@@ -20,10 +20,6 @@ function createTextElement(text) {
   };
 }
 
-function hi() {
-  console.log(hi);
-}
-
 function render(element, container) {
   console.log(element);
   const dom =

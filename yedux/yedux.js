@@ -1,8 +1,8 @@
 function reducer(state = 0, action) {
-  return action.type == "add"
-    ? (state += action.payload)
-    : action.type == "minus"
-    ? (state -= action.parload)
+  return action?.type == "add"
+    ? state + action.payload
+    : action?.type == "minus"
+    ? state - action.parload
     : state;
 }
 
